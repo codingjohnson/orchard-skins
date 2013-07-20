@@ -1,0 +1,197 @@
+﻿@functions {
+    // To support the layout classifaction below. Implementing as a razor function because we can, could otherwise be a Func<string[], string, string> in the code block following.
+    string CalcuClassify(string[] zoneNames, string classNamePrefix) {
+        var zoneCounter = 0;
+        var zoneNumsFilled = string.Join("", zoneNames.Select(zoneName => { ++zoneCounter; return Model[zoneName] != null ? zoneCounter.ToString() : "";}).ToArray());
+        return HasText(zoneNumsFilled) ? classNamePrefix + zoneNumsFilled : "";
+    }
+}
+@{
+    /* Global includes for the theme
+    ***************************************************************/
+    
+    SetMeta("charset", "utf-8");
+    SetMeta("description", "");
+    SetMeta("X-UA-Compatible", "IE=edge,chrome=1");
+    SetMeta("viewport", "width=device-width, initial-scale=1.0");
+    Style.Include("bootstrap/css/bootstrap.min.css");
+    Style.Include("bootstrap/css/bootstrap-responsive.min.css");
+    Style.Include("site.css");
+    Script.Include("~/Themes/BootstrapFluid/Styles/bootstrap/js/bootstrap.min.js");
+
+    /* Some useful shortcuts or settings
+    ***************************************************************/
+
+    Func<dynamic, dynamic> Zone = x => Display(x); // Zone as an alias for Display to help make it obvious when we're displaying zones
+
+    /* Layout classification based on filled zones
+    ***************************************************************/
+
+    //Add classes to the wrapper div to toggle aside widget zones on and off
+    var asideClass = CalcuClassify(new [] {"AsideFirst", "AsideSecond"}, "aside-"); // for aside-1, aside-2 or aside-12 if any of the aside zones are filled
+    if (HasText(asideClass)) {
+        Model.Classes.Add(asideClass);
+    }
+
+    //Add classes to the wrapper div to toggle tripel widget zones on and off
+    var tripelClass = CalcuClassify(new [] {"TripelFirst", "TripelSecond", "TripelThird"}, "tripel-"); // for tripel-1, triple-2, etc. if any of the tripel zones are filled
+    if (HasText(tripelClass)) {
+        Model.Classes.Add(tripelClass);
+    }
+
+    //Add classes to the wrapper div to toggle quad widget zones on and off
+    var footerQuadClass = CalcuClassify(new [] {"FooterQuadFirst", "FooterQuadSecond", "FooterQuadThird", "FooterQuadFourth"}, "split-"); // for quad-1, quad-2, etc. if any of the quad zones are filled
+    if (HasText(footerQuadClass)) {
+        Model.Classes.Add(footerQuadClass);
+    }
+
+    /* Inserting some ad hoc shapes
+    ***************************************************************/
+
+    WorkContext.Layout.Header.Add(New.Branding(), "0"); // Site name and link to the home page
+    WorkContext.Layout.Footer.Add(New.BadgeOfHonor(), "5"); // Powered by Orchard
+    WorkContext.Layout.Navigation.Add(New.User(), "5"); // Login and dashboard links
+
+    /* Last bit of code to prep the layout wrapper
+    ***************************************************************/
+    
+}
+
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			@if (Model.Header != null) {
+				@Zone(Model.Header)
+			}
+			<div class="nav-collapse collapse">
+				@if (Model.Navigation != null) {
+					@Zone(Model.Navigation)
+				}
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+</div>
+    <section id="content">
+        <div class="container">
+            @if (Model.BeforeMain != null) {
+                <div class="row-fluid">
+                    <div class="span12">
+                        @Zone(Model.BeforeMain)
+                    </div>
+                </div>
+            }
+            @if (Model.Featured != null) {
+                <div class="row-fluid">
+                    <div class="span12">
+                        @Zone(Model.Featured)
+                    </div>
+                </div>
+            }
+            <div class="row-fluid">
+                @if (Model.AsideFirst != null) {
+                    <aside class="span3">
+                        <div class="well">
+                            @Zone(Model.AsideFirst)&nbsp;
+                        </div>
+                    </aside>
+                }
+                <div class="@(HasText(asideClass) ? asideClass == "aside-1" || asideClass == "aside-2" ? "span9" : asideClass == "aside-12" ? "span6" : "span12" : "span12")">
+                    @if (Model.Messages != null) {
+                        @Zone(Model.Messages)
+                    }
+                    @if (Model.BeforeContent != null) {
+                        @Zone(Model.BeforeContent)
+                    }
+                    @if (Model.Content != null) {
+                        @Zone(Model.Content)
+                    }
+                    @if (Model.AfterContent != null) {
+                        @Zone(Model.AfterContent)
+                    }
+                </div>
+                @if (Model.AsideSecond != null) {
+                    <aside class="span3">
+                        <div class="well">
+                            @Zone(Model.AsideSecond)&nbsp;
+                        </div>
+                    </aside>
+                }
+            </div>
+            @if (Model.AfterMain != null) {
+                <div class="row-fluid">
+                    <div class="span12">
+                        @Zone(Model.AfterMain)
+                    </div>
+                </div>
+            }
+            @if (Model.TripelFirst != null || Model.TripelSecond != null || Model.TripelThird != null) {
+                <div class="row-fluid">
+                    @if (Model.TripelFirst != null) {
+                        <!-- start: Tripel -->
+                        <div class="@(HasText(tripelClass) ? tripelClass == "tripel-12" || tripelClass == "tripel-23" || tripelClass == "tripel-13" ? "span6" : tripelClass == "tripel-123" ? "span4" : "span12" : "span12")">
+                            @Zone(Model.TripelFirst)
+                        </div>
+                        <!-- end: Tripel -->
+                    }
+                    @if (Model.TripelSecond != null) {
+                        <!-- start: Tripel -->
+                        <div class="@(HasText(tripelClass) ? tripelClass == "tripel-12" || tripelClass == "tripel-23" || tripelClass == "tripel-13" ? "span6" : tripelClass == "tripel-123" ? "span4" : "span12" : "span12")">
+                            @Zone(Model.TripelSecond)
+                        </div>
+                        <!-- end: Tripel -->
+                    }
+                    @if (Model.TripelThird != null) {
+                        <!-- start: Tripel -->
+                        <div class="@(HasText(tripelClass) ? tripelClass == "tripel-12" || tripelClass == "tripel-23" || tripelClass == "tripel-13" ? "span6" : tripelClass == "tripel-123" ? "span4" : "span12" : "span12")">
+                            @Zone(Model.TripelThird)
+                        </div>
+                        <!-- end: Tripel -->
+                    }
+                </div>
+            }
+            @if (Model.FooterQuadFirst != null || Model.FooterQuadSecond != null || Model.FooterQuadThird != null || Model.FooterQuadFourth != null) {
+                <hr />
+                <div class="row-fluid">
+                    @if (Model.FooterQuadFirst != null) {
+                        <div class="@(HasText(footerQuadClass) ? footerQuadClass == "split-1" || footerQuadClass == "split-2" || footerQuadClass == "split-3" || footerQuadClass == "split-4" ? "span12" : footerQuadClass == "split-12" || footerQuadClass == "split-13" || footerQuadClass == "split-14" || footerQuadClass == "split-23" || footerQuadClass == "split-24" || footerQuadClass == "split-34" ? "span6" : footerQuadClass == "split-123" || footerQuadClass == "split-124" || footerQuadClass == "split-134" || footerQuadClass == "split-234" ? "span4" : "span3" : "span12")">
+                            @Zone(Model.FooterQuadFirst)
+                        </div>
+                    }
+                    @if (Model.FooterQuadSecond != null) {
+                        <div class="@(HasText(footerQuadClass) ? footerQuadClass == "split-1" || footerQuadClass == "split-2" || footerQuadClass == "split-3" || footerQuadClass == "split-4" ? "span12" : footerQuadClass == "split-12" || footerQuadClass == "split-13" || footerQuadClass == "split-14" || footerQuadClass == "split-23" || footerQuadClass == "split-24" || footerQuadClass == "split-34" ? "span6" : footerQuadClass == "split-123" || footerQuadClass == "split-124" || footerQuadClass == "split-134" || footerQuadClass == "split-234" ? "span4" : "span3" : "span12")">
+                            @Zone(Model.FooterQuadSecond)
+                        </div>
+                    }
+                    @if (Model.FooterQuadThird != null) {
+                        <div class="@(HasText(footerQuadClass) ? footerQuadClass == "split-1" || footerQuadClass == "split-2" || footerQuadClass == "split-3" || footerQuadClass == "split-4" ? "span12" : footerQuadClass == "split-12" || footerQuadClass == "split-13" || footerQuadClass == "split-14" || footerQuadClass == "split-23" || footerQuadClass == "split-24" || footerQuadClass == "split-34" ? "span6" : footerQuadClass == "split-123" || footerQuadClass == "split-124" || footerQuadClass == "split-134" || footerQuadClass == "split-234" ? "span4" : "span3" : "span12")">
+                            @Zone(Model.FooterQuadThird)
+                        </div>
+                    }
+                    @if (Model.FooterQuadFourth != null) {
+                        <div class="@(HasText(footerQuadClass) ? footerQuadClass == "split-1" || footerQuadClass == "split-2" || footerQuadClass == "split-3" || footerQuadClass == "split-4" ? "span12" : footerQuadClass == "split-12" || footerQuadClass == "split-13" || footerQuadClass == "split-14" || footerQuadClass == "split-23" || footerQuadClass == "split-24" || footerQuadClass == "split-34" ? "span6" : footerQuadClass == "split-123" || footerQuadClass == "split-124" || footerQuadClass == "split-134" || footerQuadClass == "split-234" ? "span4" : "span3" : "span12")">
+                            @Zone(Model.FooterQuadFourth)
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </section>
+</div>
+
+<footer id="footer">
+    <div class="container-fluid">
+        <hr />
+        @if (Model.Footer != null) {
+            <div class="container">
+                <div class="row-fluid">
+                    @Zone(Model.Footer)
+                </div>
+            </div>
+        }
+    </div>
+</footer>

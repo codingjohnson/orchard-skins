@@ -1,0 +1,6 @@
+Name: BootstrapFluid
+Author: Matthew Johnson
+Website: http://www.codingjohnson.com
+Description: Based on the Bootstrap Example "Fluid Layout"
+Version: 0.1
+# Tags: bootstrap, fluid

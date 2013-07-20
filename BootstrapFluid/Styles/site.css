@@ -1,0 +1,14 @@
+body {
+	padding-top: 60px;
+}
+
+ul.blog-posts {
+    list-style: none outside none;
+    margin: 0;
+}
+
+@media (max-width: 980px) {
+	body {
+		padding-top: 0;
+	}
+}
