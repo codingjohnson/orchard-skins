@@ -1,0 +1,6 @@
+Name: CJOne
+Author: Matthew Johnson
+Website: http://www.codingjohnson.com
+Description: A modified bootstrap theme for my blog
+Version: 0.1
+# Tags: Classic, Serif

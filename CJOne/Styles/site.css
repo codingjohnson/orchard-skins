@@ -1,0 +1,318 @@
+body#cjone {
+    padding-top: 125px;
+    font-family: 'Lato', Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+}
+
+    body#cjone *::selection {
+        background: #F69087;
+        color: white;
+    }
+
+    body#cjone *::-moz-selection {
+        background: #F69087;
+        color: white;
+    }
+
+    body#cjone h1, h2, h3, h4, h5 {
+        font-family: 'Crete Round',serif;
+        font-family: "Crete Round",serif !important;
+        font-weight: 400;
+    }
+
+    body#cjone a {
+        transition: all 0.1s ease-in-out 0s;
+    }
+
+        body#cjone a:hover, body#cjone a:active {
+            text-decoration: none;
+            color: #85CCB1;
+        }
+
+ul.blog-posts {
+    list-style: none outside none;
+    margin: 0;
+}
+
+@media (max-width: 980px) {
+    body#cjone {
+        padding-top: 0;
+    }
+
+    body .navbar.navbar-fixed-top {
+        margin-bottom: 30px;
+    }
+}
+
+/************/
+#cjonebackground {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+    #cjonebackground > div {
+        background: url("stripe.png") repeat scroll 0 0 transparent;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    #cjonebackground > img {
+        height: 100%;
+        width: 100%;
+    }
+
+body .navbar.navbar-fixed-top {
+    background: -webkit-linear-gradient(left center, #F69087, #F69087 25%, #85CCB1 25%, #85CCB1 50%, #85A9B3 50%, #85A9B3 75%, #B0CB7A 75%, #B0CB7A 100%) repeat scroll 0 0 transparent;
+    background: -moz-linear-gradient(left center, #F69087, #F69087 25%, #85CCB1 25%, #85CCB1 50%, #85A9B3 50%, #85A9B3 75%, #B0CB7A 75%, #B0CB7A 100%) repeat scroll 0 0 transparent;
+    background: -o-linear-gradient(left center, #F69087, #F69087 25%, #85CCB1 25%, #85CCB1 50%, #85A9B3 50%, #85A9B3 75%, #B0CB7A 75%, #B0CB7A 100%) repeat scroll 0 0 transparent;
+    background: -ms-linear-gradient(left center, #F69087, #F69087 25%, #85CCB1 25%, #85CCB1 50%, #85A9B3 50%, #85A9B3 75%, #B0CB7A 75%, #B0CB7A 100%) repeat scroll 0 0 transparent;
+    background: linear-gradient(left center, #F69087, #F69087 25%, #85CCB1 25%, #85CCB1 50%, #85A9B3 50%, #85A9B3 75%, #B0CB7A 75%, #B0CB7A 100%) repeat scroll 0 0 transparent;
+    padding-top: 5px;
+}
+
+    body .navbar.navbar-fixed-top > .navbar-inner {
+        background: #2E3641;
+    }
+
+    body .navbar.navbar-fixed-top .brand {
+        line-height: 42px;
+        color: #FFFFFF;
+        margin: 0 30px 0 0;
+        padding: 13px 0 12px;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+        display: block;
+        float: left;
+        font-size: 20px;
+        font-weight: 200;
+    }
+
+    body .navbar.navbar-fixed-top .nav > li {
+        background: none;
+    }
+
+        body .navbar.navbar-fixed-top .nav > li > a {
+            color: #EFEFEF;
+            display: block;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 25px;
+            padding: 23px 20px 20px;
+            text-decoration: none;
+            background: none;
+            box-shadow: none;
+            border-radius: 0;
+            margin: 0;
+        }
+
+            body .navbar.navbar-fixed-top .nav > li > a:hover {
+                background: rgba(255, 255, 255, 0.02);
+                box-shadow: none;
+            }
+
+            body .navbar.navbar-fixed-top .nav > li > a > b, body .navbar.navbar-fixed-top .nav > li > a > i {
+                vertical-align: middle;
+            }
+
+body .aside {
+    margin: 0;
+    padding: 0;
+}
+
+    body .aside article {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border-bottom: 2px solid #DDDDDD;
+        border-radius: 4px 4px 4px 4px;
+        margin-bottom: 30px;
+        padding: 15px;
+    }
+
+        body .aside article .page-header {
+            margin: 0;
+            padding: 0;
+            border: 0 none;
+        }
+
+            body .aside article .page-header h3 {
+                background: #2E3641;
+                border-radius: 3px 3px 0 0;
+                color: #FFFFFF;
+                padding: 0 15px;
+                font-size: 20px;
+                margin: -15px -15px 15px;
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+            }
+
+        body .aside article ul {
+            list-style: none outside none;
+            margin: 0;
+            padding: 0;
+        }
+
+body#cjone article.blog-post {
+    border-bottom: 2px solid #DDDDDD;
+    border-radius: 4px 4px 4px 4px;
+    margin-bottom: 30px;
+    background: #fff;
+    padding-bottom: 40px;
+}
+
+    body#cjone article.blog-post h3 {
+        background: #2E3641;
+        border-radius: 4px 4px 0 0;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.25) inset;
+        color: white;
+        font-size: 30px;
+        height: 70px;
+        line-height: 70px;
+        margin: 0;
+        position: relative;
+        text-indent: 15px;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+        vertical-align: middle;
+    }
+
+        body#cjone article.blog-post h3 a {
+            color: white;
+            font-size: 30px;
+            padding: 0;
+        }
+
+    body#cjone article.blog-post p {
+        padding: 40px 40px 0 40px;
+        color: #525252;
+        font-size: 18px;
+        line-height: 1.75;
+    }
+
+    body#cjone article.blog-post a {
+        font-size: 18px;
+        line-height: 1.75;
+        padding: 40px 40px 0;
+    }
+
+body footer#footer {
+    background: #2E3641;
+}
+
+    body footer#footer .container {
+        padding: 40px 0;
+        color: white;
+    }
+
+@media (max-width: 980px) {
+
+    body .navbar.navbar-fixed-top .brand {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    body .navbar.navbar-fixed-top .btn.btn-navbar {
+        margin: 18px 15px 18px 0;
+        display: block;
+        background: none repeat scroll 0 0 #85CCB1;
+        padding: 7px 10px;
+    }
+
+    body .navbar.navbar-fixed-top .nav > li > a {
+        border-left: 3px solid transparent;
+        padding: 9px 20px;
+    }
+
+        body .navbar.navbar-fixed-top .nav > li > a:hover {
+            border-left: 3px solid #85ccb1;
+            padding: 9px 20px;
+        }
+
+    body article.blog-post .post-description {
+        padding: 15px;
+    }
+}
+
+body article.widget ul.cjone-connect > li {
+    display: inline-block;
+}
+
+    body article.widget ul.cjone-connect > li > a {
+        border: 5px solid #EEEEEE;
+        border-radius: 5px 5px 5px 5px;
+        display: inline-block;
+        height: 32px;
+        width: 32px;
+        text-indent: -99999px;
+    }
+
+        body article.widget ul.cjone-connect > li > a.aboutme {
+            background: url("/CodingJohnsonDebug/Themes/CJone/Styles/aboutme.jpg") repeat scroll 0 0 transparent;
+        }
+
+        body article.widget ul.cjone-connect > li > a.github {
+            background: url("/CodingJohnsonDebug/Themes/CJone/Styles/github.png") repeat scroll 0 0 transparent;
+        }
+
+        body article.widget ul.cjone-connect > li > a.coderwall {
+            background: url("/CodingJohnsonDebug/Themes/CJone/Styles/coderwall.png") repeat scroll 0 0 transparent;
+        }
+
+        body article.widget ul.cjone-connect > li > a.behance {
+            background: url("/CodingJohnsonDebug/Themes/CJone/Styles/behance.png") repeat scroll 0 0 transparent;
+        }
+
+        body article.widget ul.cjone-connect > li > a.twitter {
+            background: url("/CodingJohnsonDebug/Themes/CJone/Styles/twitter.png") repeat scroll 0 0 transparent;
+        }
+
+body#cjone div.comments ul.comment-list {
+    list-style: none outside none;
+    margin: 0;
+}
+
+    body#cjone div.comments ul.comment-list a {
+        font-size: 14px;
+        padding: 0;
+    }
+
+    body#cjone div.comments ul.comment-list .comment-author, body div.comments ul.comment-list .cmeta {
+        display: inline-block;
+        padding-right: 20px;
+    }
+
+    body#cjone div.comments ul.comment-list p {
+        padding: 0;
+    }
+
+body#cjone .widget-search-form {
+    float: none;
+}
+
+body#cjone .search-summary {
+    float: none;
+}
+
+body#cjone ul.search-results {
+    list-style: none outside none;
+    margin: 0;
+}
+
+body#cjone .search-form button[type="submit"] {
+    margin: 0 0 0 -1px;
+}
+
+body#cjone article p a, body#cjone article.blog-post p a {
+    padding: 0;
+    font-size: 14px;
+}
+
+body#cjone article.blog-post p a {
+    font-size: 18px;
+}
+
+body#cjone #content ul {
+    list-style: none outside none;
+    margin: 0;
+}
