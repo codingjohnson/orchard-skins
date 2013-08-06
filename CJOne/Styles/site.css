@@ -19,6 +19,10 @@ body#cjone {
         font-weight: 400;
     }
 
+body#cjone #content {
+    min-height:1200px;
+}
+
     body#cjone a {
         transition: all 0.1s ease-in-out 0s;
     }
@@ -73,7 +77,6 @@ body .navbar.navbar-fixed-top {
     background: -o-linear-gradient(left center, #F69087, #F69087 25%, #85CCB1 25%, #85CCB1 50%, #85A9B3 50%, #85A9B3 75%, #B0CB7A 75%, #B0CB7A 100%) repeat scroll 0 0 transparent;
     background: -ms-linear-gradient(left center, #F69087, #F69087 25%, #85CCB1 25%, #85CCB1 50%, #85A9B3 50%, #85A9B3 75%, #B0CB7A 75%, #B0CB7A 100%) repeat scroll 0 0 transparent;
     background: linear-gradient(left center, #F69087, #F69087 25%, #85CCB1 25%, #85CCB1 50%, #85A9B3 50%, #85A9B3 75%, #B0CB7A 75%, #B0CB7A 100%) repeat scroll 0 0 transparent;
-    padding-top: 5px;
 }
 
     body .navbar.navbar-fixed-top > .navbar-inner {
@@ -154,7 +157,7 @@ body .aside {
             padding: 0;
         }
 
-body#cjone article.blog-post {
+body#cjone article.blog-post, body#cjone article.page div.biotext {
     border-bottom: 2px solid #DDDDDD;
     border-radius: 4px 4px 4px 4px;
     margin-bottom: 30px;
@@ -162,19 +165,19 @@ body#cjone article.blog-post {
     padding-bottom: 40px;
 }
 
-    body#cjone article.blog-post h3 {
+    body#cjone article.blog-post h3, body#cjone article.page div.biotext > h2 {
         background: #2E3641;
         border-radius: 4px 4px 0 0;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.25) inset;
         color: white;
         font-size: 30px;
-        height: 70px;
         line-height: 70px;
         margin: 0;
         position: relative;
-        text-indent: 15px;
+        padding: 0 0 0 40px;
         text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
         vertical-align: middle;
+        overflow:hidden;
     }
 
         body#cjone article.blog-post h3 a {
@@ -183,12 +186,38 @@ body#cjone article.blog-post {
             padding: 0;
         }
 
-    body#cjone article.blog-post p {
-        padding: 40px 40px 0 40px;
+    body#cjone article.blog-post header {
+        margin-bottom: 20px;
+    }
+
+    body#cjone article.blog-post p, body#cjone article.page div.biotext p {
         color: #525252;
         font-size: 18px;
         line-height: 1.75;
+        padding: 0 40px;
     }
+
+    body#cjone article.page div.biotext > h2 {
+        margin-bottom:20px;
+    }
+
+    body#cjone article.page div.biotext > h3 {
+        padding:0 40px;
+    }
+
+    body#cjone #content article.blog-post ul {
+        color: #525252;
+        font-size: 18px;
+        list-style: disc outside none;
+        background: none repeat scroll 0 0 #EEEEEE;
+        border-left: 8px solid #CCCCCC;
+        padding: 20px 20px 1px 40px;
+        margin: 0px 20px 0px 40px;
+    }
+
+        body#cjone #content article.blog-post ul > li {
+            margin: 0 0 20px;
+        }
 
     body#cjone article.blog-post a {
         font-size: 18px;
@@ -205,35 +234,6 @@ body footer#footer {
         color: white;
     }
 
-@media (max-width: 980px) {
-
-    body .navbar.navbar-fixed-top .brand {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    body .navbar.navbar-fixed-top .btn.btn-navbar {
-        margin: 18px 15px 18px 0;
-        display: block;
-        background: none repeat scroll 0 0 #85CCB1;
-        padding: 7px 10px;
-    }
-
-    body .navbar.navbar-fixed-top .nav > li > a {
-        border-left: 3px solid transparent;
-        padding: 9px 20px;
-    }
-
-        body .navbar.navbar-fixed-top .nav > li > a:hover {
-            border-left: 3px solid #85ccb1;
-            padding: 9px 20px;
-        }
-
-    body article.blog-post .post-description {
-        padding: 15px;
-    }
-}
-
 body article.widget ul.cjone-connect > li {
     display: inline-block;
 }
@@ -248,23 +248,27 @@ body article.widget ul.cjone-connect > li {
     }
 
         body article.widget ul.cjone-connect > li > a.aboutme {
-            background: url("/CodingJohnsonDebug/Themes/CJone/Styles/aboutme.jpg") repeat scroll 0 0 transparent;
+            background: url("aboutme.jpg") repeat scroll 0 0 transparent;
         }
 
         body article.widget ul.cjone-connect > li > a.github {
-            background: url("/CodingJohnsonDebug/Themes/CJone/Styles/github.png") repeat scroll 0 0 transparent;
+            background: url("github.png") repeat scroll 0 0 transparent;
         }
 
         body article.widget ul.cjone-connect > li > a.coderwall {
-            background: url("/CodingJohnsonDebug/Themes/CJone/Styles/coderwall.png") repeat scroll 0 0 transparent;
+            background: url("coderwall.png") repeat scroll 0 0 transparent;
         }
 
         body article.widget ul.cjone-connect > li > a.behance {
-            background: url("/CodingJohnsonDebug/Themes/CJone/Styles/behance.png") repeat scroll 0 0 transparent;
+            background: url("behance.png") repeat scroll 0 0 transparent;
         }
 
         body article.widget ul.cjone-connect > li > a.twitter {
-            background: url("/CodingJohnsonDebug/Themes/CJone/Styles/twitter.png") repeat scroll 0 0 transparent;
+            background: url("twitter.png") repeat scroll 0 0 transparent;
+        }
+
+        body article.widget ul.cjone-connect > li > a.linkedin {
+            background: url("linkedin.png") repeat scroll 0 0 transparent;
         }
 
 body#cjone div.comments ul.comment-list {
@@ -315,4 +319,85 @@ body#cjone article.blog-post p a {
 body#cjone #content ul {
     list-style: none outside none;
     margin: 0;
+}
+
+body#cjone .zone-navigation {
+	line-height:0;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 980px) {
+    body .navbar.navbar-fixed-top .brand {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    body .navbar.navbar-fixed-top .btn.btn-navbar {
+        margin: 18px 15px 18px 0;
+        display: block;
+        background: none repeat scroll 0 0 #85CCB1;
+        padding: 7px 10px;
+    }
+
+    body .navbar.navbar-fixed-top .nav > li > a {
+        border-left: 3px solid transparent;
+        padding: 9px 20px;
+    }
+
+        body .navbar.navbar-fixed-top .nav > li > a:hover {
+            border-left: 3px solid #85ccb1;
+            padding: 9px 20px;
+        }
+
+    body article.blog-post .post-description {
+        padding: 15px;
+    }
+
+    body#cjone article.blog-post h3, body#cjone article.page div.biotext > h2 {
+        font-size:20px;
+        line-height:40px;
+        padding:0 0 0 15px;
+    }
+
+    body#cjone article.blog-post p, body#cjone article.page div.biotext p {
+        font-size:14px;
+        padding:0px 15px 0px 15px;
+    }
+
+    body#cjone article.blog-post p a {
+        font-size:14px;
+    }
+
+    body#cjone article.page div.biotext > h2 {
+        margin-bottom:10px;
+    }
+
+    body#cjone article.page div.biotext > h3 {
+        font-size: 20px;
+        line-height: 20px;
+        padding: 0 15px;
+    }
+
+    body#cjone #content article.blog-post ul {
+        font-size: 14px;
+        margin: 0 10px 0 20px;
+        padding: 10px 10px 10px 20px;
+    }
+
+        body#cjone #content article.blog-post ul > li {
+            margin: 0 0 10px;
+        }
+}
+
+@media (max-width: 767px) {
+    body#cjone div.zone.zone-aside-first, body#cjone aside {
+        display:none;
+    }
 }
